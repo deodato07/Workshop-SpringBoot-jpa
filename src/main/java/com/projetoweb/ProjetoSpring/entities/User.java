@@ -1,17 +1,22 @@
 package com.projetoweb.ProjetoSpring.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
-public class User implements Serializable{
-
+@Entity
+@Table(name = "tb_user")
+public class User implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
     private String email;
     private String phone;
     private String password;
 
-    public User(){
+    public User() {
     }
 
     public User(long id, String nome, String email, String phone, String password) {
